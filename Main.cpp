@@ -11,7 +11,13 @@ void escaleras() {
 
     cout << "\n--- PROBLEMA 1: ESCALERAS ---" << endl;
     cout << "Ingrese el numero de escalones: ";
-    cin >> N;
+
+    if (!(cin >> N)) {
+        cout << "Por favor, ingrese un numero." << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+        return;
+    }
 
     if (N < 0 || N > 91) {
         cout << "Ingrese un valor entre 0 y 91." << endl;
@@ -53,7 +59,13 @@ void cambioMonedas() {
     cout << "\n--- PROBLEMA 2: CAMBIO MINIMO DE MONEDAS ---" << endl;
 
     cout << "Ingrese la cantidad de denominaciones: ";
-    cin >> M;
+
+    if (!(cin >> M)) {
+        cout << "Por favor, ingrese un numero." << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+        return;
+    }
 
     if (M <= 0 || M > 100) {
         cout << "Cantidad de denominaciones invalida." << endl;
@@ -64,7 +76,13 @@ void cambioMonedas() {
 
     for (int i = 0; i < M; i++) {
         cout << "Ingrese la moneda " << i + 1 << ": ";
-        cin >> monedas[i];
+
+        if (!(cin >> monedas[i])) {
+            cout << "Por favor, ingrese un numero." << endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            return;
+        }
 
         if (monedas[i] <= 0) {
             cout << "Las denominaciones deben ser positivas." << endl;
@@ -73,7 +91,13 @@ void cambioMonedas() {
     }
 
     cout << "Ingrese la cantidad objetivo: ";
-    cin >> cantidad;
+
+    if (!(cin >> cantidad)) {
+        cout << "Por favor, ingrese un numero." << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+        return;
+    }
 
     if (cantidad < 0 || cantidad > 100000) {
         cout << "Cantidad objetivo invalida." << endl;
@@ -158,7 +182,15 @@ int main() {
         cout << "2. Cambio minimo de monedas" << endl;
         cout << "3. Salir" << endl;
         cout << "Seleccione una opcion: ";
-        cin >> opcion;
+
+        if (!(cin >> opcion)) {
+            cout << "Por favor, ingrese un numero." << endl;
+
+            cin.clear();
+            cin.ignore(10000, '\n');
+
+            continue;
+        }
 
         switch (opcion) {
             case 1:
@@ -174,7 +206,7 @@ int main() {
                 break;
 
             default:
-                cout << "Opcion invalida. Intente nuevamente." << endl;
+                cout << "Opcion invalida. Ingrese 1, 2 o 3." << endl;
         }
 
     } while (opcion != 3);
